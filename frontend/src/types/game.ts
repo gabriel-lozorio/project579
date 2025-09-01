@@ -30,8 +30,8 @@ export type SubmitGuessResponse = {
   secretNumber?: number; // Provided on correct guess
   message?: string;
   hint?: string | null;
-  graphical_range_data: GraphicalRangeData;
-  history: (Omit<Attempt, 'is_current'> & { feedback: Feedback })[];
+  graphicalRangeData: GraphicalRangeData;
+  attemptsHistory: (Omit<Attempt, 'is_current'> & { feedback: Feedback })[];
 };
 
 export type GuessPayload = {

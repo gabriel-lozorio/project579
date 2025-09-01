@@ -110,10 +110,10 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
     try {
       const data = await gameService.submitGuess(gameState.gameId, guess);
       
-      const newHistory: Attempt[] = data.history.map((item, index) => ({
+      const newHistory: Attempt[] = data.attemptsHistory.map((item, index) => ({
         guess: item.guess,
         feedback: item.feedback,
-        is_current: index === data.history.length - 1,
+        is_current: index === data.attemptsHistory.length - 1,
       }));
 
       if (data.isCorrect) {
@@ -127,7 +127,7 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
         feedback: data.isCorrect ? null : data.feedback,
         attemptsHistory: newHistory,
         hint: data.hint ?? null,
-        graphicalRangeData: data.graphical_range_data,
+        graphicalRangeData: data.graphicalRangeData,
         message: data.message ?? null,
       }));
 

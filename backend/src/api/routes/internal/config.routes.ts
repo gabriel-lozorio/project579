@@ -10,9 +10,9 @@ const configController = new ConfigController();
 /**
  * @route GET /api/v1/config/game
  * @description Obtém a configuração atual do jogo (intervalo de números).
- * @access Admin
+ * @access Public
  */
-configRouter.get('/game', isAdmin, configController.getConfig);
+configRouter.get('/game', configController.getConfig);
 
 /**
  * @route PUT /api/v1/config/game
