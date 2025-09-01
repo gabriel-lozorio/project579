@@ -14,7 +14,7 @@ export const ShareButton = ({ attempts, time, className }: ShareButtonProps) => 
 
   // #region Effects
   useEffect(() => {
-    if (navigator.share) {
+    if ('share' in navigator) {
       setIsSupported(true);
     }
   }, []);

@@ -64,11 +64,11 @@ export const ConfigPanel = () => {
     const max = Number(config.max_range_setting);
     const hintTrigger = Number(config.hint_trigger_count);
 
-    if (config.min_range_setting === '' || isNaN(min) || !Number.isInteger(min)) {
+    if (config.min_range_setting === undefined || isNaN(min) || !Number.isInteger(min)) {
       setError("Valor inválido: O valor mínimo deve ser um número inteiro.");
       return false;
     }
-    if (config.max_range_setting === '' || isNaN(max) || !Number.isInteger(max)) {
+    if (config.max_range_setting === undefined || isNaN(max) || !Number.isInteger(max)) {
       setError("Valor inválido: O valor máximo deve ser um número inteiro.");
       return false;
     }
@@ -76,7 +76,7 @@ export const ConfigPanel = () => {
       setError("Intervalo inválido: O valor mínimo deve ser menor que o valor máximo.");
       return false;
     }
-    if (config.hint_trigger_count === '' || isNaN(hintTrigger) || !Number.isInteger(hintTrigger) || hintTrigger <= 0) {
+    if (config.hint_trigger_count === undefined || isNaN(hintTrigger) || !Number.isInteger(hintTrigger) || hintTrigger <= 0) {
       setError("Gatilho de dica inválido: Deve ser um número inteiro maior que zero.");
       return false;
     }
@@ -141,15 +141,15 @@ export const ConfigPanel = () => {
       <fieldset className="space-y-2">
         <legend className="font-semibold text-lg mb-2">Mensagens de Feedback</legend>
         <div className="space-y-2">
-          <label htmlFor="custom_message_higher" className="text-sm font-medium leading-none">Palpite 'Maior'</label>
+          <label htmlFor="custom_message_higher" className="text-sm font-medium leading-none">Palpite &apos;Maior&apos;</label>
           <Input id="custom_message_higher" name="custom_message_higher" type="text" value={config.custom_message_higher ?? ''} onChange={handleInputChange} placeholder="Padrão: Muito alto!" disabled={isSaving} />
         </div>
         <div className="space-y-2">
-          <label htmlFor="custom_message_lower" className="text-sm font-medium leading-none">Palpite 'Menor'</label>
+          <label htmlFor="custom_message_lower" className="text-sm font-medium leading-none">Palpite &apos;Menor&apos;</label>
           <Input id="custom_message_lower" name="custom_message_lower" type="text" value={config.custom_message_lower ?? ''} onChange={handleInputChange} placeholder="Padrão: Muito baixo!" disabled={isSaving} />
         </div>
         <div className="space-y-2">
-          <label htmlFor="custom_message_equal" className="text-sm font-medium leading-none">Palpite 'Correto'</label>
+          <label htmlFor="custom_message_equal" className="text-sm font-medium leading-none">Palpite &apos;Correto&apos;</label>
           <Input id="custom_message_equal" name="custom_message_equal" type="text" value={config.custom_message_equal ?? ''} onChange={handleInputChange} placeholder="Padrão: Parabéns, você acertou!" disabled={isSaving} />
         </div>
       </fieldset>

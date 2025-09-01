@@ -144,7 +144,11 @@ export const GameBoard = () => {
       </CardHeader>
       <CardContent>
         {gameState.graphicalRangeData && (
-          <RangeIndicator {...gameState.graphicalRangeData} />
+          <RangeIndicator 
+            min={gameState.graphicalRangeData.min}
+            max={gameState.graphicalRangeData.max}
+            guessPositionPercent={gameState.graphicalRangeData.guess_position_percent}
+          />
         )}
         <form onSubmit={handleGuessSubmit} className="space-y-4">
           <Input

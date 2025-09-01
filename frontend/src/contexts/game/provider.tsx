@@ -111,7 +111,8 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
       const data = await gameService.submitGuess(gameState.gameId, guess);
       
       const newHistory: Attempt[] = data.history.map((item, index) => ({
-        ...item,
+        guess: item.guess,
+        feedback: item.feedback,
         is_current: index === data.history.length - 1,
       }));
 

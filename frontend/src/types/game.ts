@@ -31,7 +31,7 @@ export type SubmitGuessResponse = {
   message?: string;
   hint?: string | null;
   graphical_range_data: GraphicalRangeData;
-  history: Omit<Attempt, 'is_current' | 'feedback'> & { feedback: Feedback }[];
+  history: (Omit<Attempt, 'is_current'> & { feedback: Feedback })[];
 };
 
 export type GuessPayload = {
